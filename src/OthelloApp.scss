@@ -1,0 +1,69 @@
+$tileDimension: 32px;
+$boardSize: 8;
+$boardDimension: $tileDimension * $boardSize;
+
+$buttonColor: #eeeeee;
+$buttonColorHover: #dddddd;
+$buttonColorPressed: #bbbbbb;
+
+.OthelloApp
+{
+  width: 256px;
+  margin: auto;
+  text-align: center;
+}
+
+.OthelloBoard-grid
+{
+  display: grid;
+  grid-gap: 0;
+  grid-template-rows: repeat($boardSize, $tileDimension);
+  grid-template-columns: repeat($boardSize, $tileDimension);
+}
+
+.OthelloBoard-tile
+{
+  margin: -1px -1px 0px 0px;
+  padding: 0;
+  border: 1px solid black;
+  text-align: center;
+  background-color: $buttonColor;
+}
+
+.OthelloBoard-tile:hover
+{
+  background-color: $buttonColorHover;
+}
+
+.OthelloBoard-tile:active
+{
+  background-color: $buttonColorPressed;
+}
+
+.current-player
+{
+  margin: 4px;
+}
+
+.scorebox
+{
+  margin: 4px;
+}
+
+.score-white
+{
+  display: inline-block;
+  border: 1px solid black;
+  padding: 4px;
+  margin-right: 4px;
+}
+
+.score-black
+{
+  display: inline-block;
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  padding: 4px;
+  margin-left: 4px;
+}
