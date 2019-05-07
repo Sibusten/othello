@@ -29,7 +29,7 @@ class OthelloToken extends React.Component
 
   componentWillReceiveProps(props)
   {
-    this.state = {tokenType: props.tokenType};
+    this.setState({tokenType: props.tokenType});
   }
 
   render()
