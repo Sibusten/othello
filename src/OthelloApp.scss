@@ -8,7 +8,7 @@ $buttonColorPressed: #bbbbbb;
 
 .OthelloApp
 {
-  width: 256px;
+  width: $boardDimension;
   margin: auto;
   text-align: center;
 }
