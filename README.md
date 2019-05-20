@@ -1,5 +1,7 @@
 # Othello
 
+[![Build Status](https://travis-ci.org/Sibusten/othello.svg?branch=master)](https://travis-ci.org/Sibusten/othello)
+
 This is a simple web-based game of [Othello](https://en.wikipedia.org/wiki/Reversi). Currently, only two player mode is supported.
 
 The game can be played at https://sibusten.github.io/othello/index.html
