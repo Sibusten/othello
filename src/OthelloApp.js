@@ -38,14 +38,15 @@ class OthelloToken extends React.Component
 
     switch (this.state.tokenType)
     {
-      case TOKEN_TYPE.EMPTY:
-        token = <span />;
-        break;
       case TOKEN_TYPE.WHITE:
         token = <img src={whiteToken} alt="W" />;
         break;
       case TOKEN_TYPE.BLACK:
         token = <img src={blackToken} alt="B" />;
+        break;
+      case TOKEN_TYPE.EMPTY:
+      default:
+        token = <span />;
         break;
     }
 
@@ -108,26 +109,23 @@ class OthelloBoard extends React.Component
 
   tileClicked(row, col, e)
   {
-    if (this.board[row][col] != TOKEN_TYPE.EMPTY)
+    if (this.board[row][col] !== TOKEN_TYPE.EMPTY)
     {
       // Tile already taken
       return;
     }
 
     let curToken;
-    let otherToken;
     let nextPlayer;
 
-    if (this.curPlayer == PLAYER.WHITE)
+    if (this.curPlayer === PLAYER.WHITE)
     {
       curToken = TOKEN_TYPE.WHITE;
-      otherToken = TOKEN_TYPE.BLACK;
       nextPlayer = PLAYER.BLACK;
     }
     else
     {
       curToken = TOKEN_TYPE.BLACK;
-      otherToken = TOKEN_TYPE.WHITE;
       nextPlayer = PLAYER.WHITE;
     }
 
@@ -145,13 +143,13 @@ class OthelloBoard extends React.Component
       while (true)
       {
         if (curRow < 0 || curRow >= this.boardSize || curCol < 0 || curCol >= this.boardSize ||
-            this.board[curRow][curCol] == TOKEN_TYPE.EMPTY)
+            this.board[curRow][curCol] === TOKEN_TYPE.EMPTY)
         {
           // This direction can't be flipped
           return;
         }
 
-        if (this.board[curRow][curCol] == curToken)
+        if (this.board[curRow][curCol] === curToken)
         {
           // This direction can be flipped
           break;
@@ -168,7 +166,7 @@ class OthelloBoard extends React.Component
       curCol += invDir[1];
 
       // flip tokens
-      while (!(curRow == row && curCol == col))
+      while (!(curRow === row && curCol === col))
       {
         this.board[curRow][curCol] = curToken;
 
@@ -188,7 +186,7 @@ class OthelloBoard extends React.Component
       // Update score
       let newScoreWhite = this.state.scoreWhite;
       let newScoreBlack = this.state.scoreBlack;
-      if (this.curPlayer == PLAYER.WHITE)
+      if (this.curPlayer === PLAYER.WHITE)
       {
         newScoreWhite += numChangedTokens + 1;
         newScoreBlack -= numChangedTokens;
